@@ -224,7 +224,15 @@ No *ArvBinBusca::busca(int k) {
 }
 
 No *ArvBinBusca::busca(No *x, int k) {
-  //TODO: implementar
+    if (x == NULL || k == x->chave) {
+        return x;
+    }
+    else if (k < x->chave) {
+        return busca(x->esq, k);
+    } 
+    else {
+        return busca(x->dir, k);
+    }
 }
 
 No *ArvBinBusca::minimo() {
