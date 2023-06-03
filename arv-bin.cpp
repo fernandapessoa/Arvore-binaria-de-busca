@@ -240,7 +240,10 @@ No *ArvBinBusca::minimo() {
 }
 
 No *ArvBinBusca::minimo(No *x) {
-  //TODO: implementar
+    while (x->esq != NULL) {
+        x = x->esq;
+    }
+    return x;
 }
 
 No *ArvBinBusca::maximo() {
