@@ -324,7 +324,15 @@ void ArvBinBusca::insere(No *z) {
 }
 
 void ArvBinBusca::transplante(No *u, No *v) {
-  //TODO: implementar
+  if (u->pai == NULL)
+    raiz = v;
+  else if (u == u->pai->esq)
+    u->pai->esq = v;
+  else
+    u->pai->dir = v;
+
+  if (v != NULL)
+    v->pai = u->pai;
 }
 
 bool ArvBinBusca::remove(int chave) {
@@ -338,7 +346,25 @@ bool ArvBinBusca::remove(int chave) {
 }
 
 void ArvBinBusca::remove(No *z) {
-  //TODO: implementar
+  if (z->esq == NULL)
+    transplante(z, z->dir);
+  
+  else if (z->dir == NULL)
+    transplante(z, z->esq);
+  
+  else {
+    No *y = minimo(z->dir);
+
+    if (y->pai != z) {
+      transplante(y, y->dir);
+      y->dir = z->dir;
+      y->dir->pai = y;
+    }
+
+    transplante(z, y);
+    y->esq = z->esq;
+    y->esq->pai = y;
+  }
 }
 
 void ArvBinBusca::limpa() {
