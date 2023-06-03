@@ -256,12 +256,33 @@ No *ArvBinBusca::maximo(No *x) {
     }
     return x;
 }
+
 No *ArvBinBusca::sucessor(No *x) {
-  //TODO: implementar
+    if (x->dir != NULL) {
+        return minimo(x->dir);
+    }
+
+    No *y = x->pai;
+
+    while (y != NULL && x == y->dir) {
+        x = y;
+        y = y->pai;
+    }
+    return y;
 }
 
 No *ArvBinBusca::predecessor(No *x) {
-  //TODO: implementar
+    if (x->esq != NULL) {
+        return maximo(x->esq);
+    }
+
+    No *y = x->pai;
+
+    while (y != NULL && x == y->esq) {
+        x = y;
+        y = y->pai;
+    }
+    return y;
 }
 
 void ArvBinBusca::insere(int chave) {
