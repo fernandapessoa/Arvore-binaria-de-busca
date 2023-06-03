@@ -291,13 +291,10 @@ void ArvBinBusca::insere(int chave) {
 }
 
 void ArvBinBusca::insere(No *z) {
-  //TODO: implementar
-}
-void ArvBinBusca::insere(No *z) {
-  No *y = nullptr;
+  No *y = NULL;
   No *x = raiz;
 
-  while (x != nullptr) {
+  while (x != NULL) {
     y = x;
     if (z->chave < x->chave) {
       x = x->esq;
@@ -309,7 +306,7 @@ void ArvBinBusca::insere(No *z) {
 
   z->pai = y;
 
-  if (y == nullptr) {
+  if (y == NULL) {
     raiz = z;
   } 
   else if (z->chave < y->chave) {
