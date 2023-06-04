@@ -22,7 +22,7 @@ private:
   int chave;
   No *pai;
   No *esq;
-  No *dir;
+  No *dir;  
 };
 
 
@@ -84,7 +84,7 @@ int main(void)
   printf("Valores de T em ordem crescente: ");
   T.escreve_ordenado(); //TODO: implemente depois escreve_ordenado
 
-  return 0; //TODO: remover após implementar minimo, maximo, sucessor, predecessor
+  //return 0; //TODO: remover após implementar minimo, maximo, sucessor, predecessor
 
   No *raiz = T.get_raiz();
   printf("Raiz: ");
@@ -109,7 +109,7 @@ int main(void)
   printf("Máximo: ");
   maximo->escreve("\n");
 
-  return 0; //TODO: remover após implementar remoção
+  //return 0; //TODO: remover após implementar remoção
 
   T.remove(0); // Caso 1
   T.remove(13); // Caso 2
@@ -118,7 +118,7 @@ int main(void)
   printf("T:\n");
   T.escreve();
 
-  return 0; //TODO: remover após implementar construtor de cópia e operador de atribuição
+  //return 0; //TODO: remover após implementar construtor de cópia e operador de atribuição
   
   ArvBinBusca T2(T); // construtor de cópia
   T2.insere(30);
@@ -231,15 +231,15 @@ No *ArvBinBusca::busca(int k) {
 }
 
 No *ArvBinBusca::busca(No *x, int k) {
-    if (x == NULL || k == x->chave) {
+    if (x == NULL || k == x->chave) 
         return x;
-    }
-    else if (k < x->chave) {
+    
+    else if (k < x->chave) 
         return busca(x->esq, k);
-    } 
-    else {
+    
+    else 
         return busca(x->dir, k);
-    }
+    
 }
 
 No *ArvBinBusca::minimo() {
@@ -247,9 +247,9 @@ No *ArvBinBusca::minimo() {
 }
 
 No *ArvBinBusca::minimo(No *x) {
-    while (x->esq != NULL) {
+    while (x->esq != NULL) 
         x = x->esq;
-    }
+    
     return x;
 }
 
@@ -265,9 +265,8 @@ No *ArvBinBusca::maximo(No *x) {
 }
 
 No *ArvBinBusca::sucessor(No *x) {
-    if (x->dir != NULL) {
+    if (x->dir != NULL)
         return minimo(x->dir);
-    }
 
     No *y = x->pai;
 
@@ -279,9 +278,8 @@ No *ArvBinBusca::sucessor(No *x) {
 }
 
 No *ArvBinBusca::predecessor(No *x) {
-    if (x->esq != NULL) {
+    if (x->esq != NULL) 
         return maximo(x->esq);
-    }
 
     No *y = x->pai;
 
@@ -303,19 +301,19 @@ void ArvBinBusca::insere(No *z) {
 
   while (x != NULL) {
     y = x;
-    if (z->chave < x->chave) {
+    if (z->chave < x->chave) 
       x = x->esq;
-    } 
-    else {
+    
+    else
       x = x->dir;
-    }
+    
   }
 
   z->pai = y;
 
-  if (y == NULL) {
+  if (y == NULL) 
     raiz = z;
-  } 
+  
   else if (z->chave < y->chave) {
     y->esq = z;
   } else {
@@ -386,5 +384,31 @@ void ArvBinBusca::copia(const ArvBinBusca& T) {
 }
 
 void ArvBinBusca::copia(No *dest, No *orig) {
-  //TODO: implementar
+    //TODO: implementar
 }
+
+// void ArvBinBusca::copia(No *dest, No *orig) {
+//     if (orig != NULL) {
+//         dest = new No(orig->chave);
+//         copia(dest->esq, orig->esq);
+//         copia(dest->dir, orig->dir);
+//     } else {
+//        dest = NULL;
+//     }
+// }
+
+// void copia(No *dest, No *orig) {
+//     if (orig != nullptr) {
+//         No* novo = new No(orig->chave);
+//         novo->pai = nullptr;
+//         novo->esq = nullptr;
+//         novo->dir = nullptr;
+
+//         copia(novo->esq, orig->esq);
+//         copia(novo->dir, orig->dir);
+
+//         *dest = *novo;
+//     }
+// }
+
+
