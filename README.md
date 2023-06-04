@@ -1,6 +1,6 @@
 # Árvore Binária
 
-Trabalho de Estrutura de Dados - Universidade Federal do Mato Grosso do Sul (UFMS)
+Trabalho de Estrutura de Dados - Universidade Federal do Mato Grosso do Sul (UFMS)  
 
 
 ### Objetivo
@@ -14,19 +14,17 @@ A main do modelo já possui testes de todas as implementações. À medida que o
 
 
 ### Implementações
-Implementação de insere
-
-Implementação de escreve_ordenado 
-Implementação de minimo, maximo, sucessor, predecessor
-
-Implementação de busca e remove  
-Implementação de limpa e copia  
+Implementação de insere   
+Implementação de escreve_ordenado  
+Implementação de minimo, maximo, sucessor, predecessor  
+Implementação de busca e remove    
+Implementação de limpa e copia    
 
 
 ### Exigências
-O programa DEVE ser feito em C++ utilizando as definições de classes fornecidas pelo professor.
-O programa DEVE implementar as operações conforme visto em aula.
-Compile com as opções -Wall -pedantic -std=c++11. Erros e avisos do compilador resultarão em descontos na nota.
+O programa DEVE ser feito em C++ utilizando as definições de classes fornecidas pelo professor.   
+O programa DEVE implementar as operações conforme visto em aula.   
+Compile com as opções -Wall -pedantic -std=c++11. Erros e avisos do compilador resultarão em descontos na nota.    
 
 
 
