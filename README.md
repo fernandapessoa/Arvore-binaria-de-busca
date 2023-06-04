@@ -15,10 +15,12 @@ A main do modelo já possui testes de todas as implementações. À medida que o
 
 ### Implementações
 Implementação de insere
-Implementação de escreve_ordenado
+
+Implementação de escreve_ordenado 
 Implementação de minimo, maximo, sucessor, predecessor
-Implementação de busca e remove
-Implementação de limpa e copia
+
+Implementação de busca e remove  
+Implementação de limpa e copia  
 
 
 ### Exigências
