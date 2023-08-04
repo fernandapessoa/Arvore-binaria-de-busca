@@ -1,4 +1,4 @@
-# Árvore Binária
+# Árvore Binária de Busca
 
 Trabalho de Estrutura de Dados - Universidade Federal do Mato Grosso do Sul (UFMS)  
 
