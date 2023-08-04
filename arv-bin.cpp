@@ -1,3 +1,9 @@
+/* Estruturas de Dados - Trabalho pratico
+
+Professor: Diego P. Rubert
+Aluno(s): Fernanda pessoa e Lucas Hokama.
+
+*/
 #include <cstdio>
 #include <string>
 
@@ -60,7 +66,7 @@ private:
 
   void copia(const ArvBinBusca& T); // copia uma árvore T para a atual a partir da raiz,
                                     // usada no construtor de cópia e no operador de atribuição
-  void copia(No *&dest, No *orig);   // copia um nó e os descendentes recursivamente
+  void copia(No *dest, No *orig);   // copia um nó e os descendentes recursivamente
 };
 
 
@@ -134,11 +140,6 @@ int main(void)
   printf("T3:\n");
   T3.escreve();
   
-  T3.limpa();
-  printf("T3: \n");
-  T3.escreve();
-  printf("T: \n");
-  T.escreve();
   return 0;
 }
 
@@ -385,11 +386,19 @@ void ArvBinBusca::copia(const ArvBinBusca& T) {
   }
 }
 
-void ArvBinBusca::copia(No *&dest, No *orig) {
+void ArvBinBusca::copia(No *dest, No *orig) {
     if (orig != NULL) {
-        dest = new No(orig->chave);
-        copia(dest->esq, orig->esq);
-        copia(dest->dir, orig->dir);
+        dest->chave = orig->chave;
+        if(orig->esq != NULL){
+            dest->esq = new No(orig->esq->chave);
+            dest->esq->pai = dest;
+            copia(dest->esq, orig->esq);
+        }
+        if(orig->dir != NULL){
+            dest->dir = new No(orig->dir->chave);
+            dest->dir->pai = dest;
+            copia(dest->dir, orig->dir);
+        }
     } else {
        dest = NULL;
     }
